@@ -1,8 +1,8 @@
 <?php
-$host_name = 'localhost';
-$database = 'moncv';
-$user = 'root';
-$password = 'root';
+$host_name = 'quentinrjds4rdmi.mysql.db';
+$database = 'quentinrjds4rdmi';
+$user = 'quentinrjds4rdmi';
+$password = 'Ynovb1b2019';
 $bdd = null;
 
 try{
