@@ -1,9 +1,7 @@
 <?php
-$host_name = 'quentinrjds4rdmi.mysql.db';
-$database = 'quentinrjds4rdmi';
-$user = 'quentinrjds4rdmi';
-$password = 'Ynovb1b2019';
-$bdd = null;
+
+include ('info.php');
+
 
 try{
     $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user, $password);
