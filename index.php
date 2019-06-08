@@ -1,8 +1,23 @@
-<!DOCTYPE html>
+<?php
+include ('info.php');
+
+$title = 'Quentin Regnault';
+$description = '"SELECT description FROM moi"';
+$data = $query->fetchAll();
+
+
+
+
+
+
+
+
+
+$html = '<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>je sais pas</title>
+  <title>'.$title.'</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -79,7 +94,7 @@
             <h5>A propos de moi.</h5>
           </div>
           <div class="col-lg-6">
-            <p>Apres avoir travaillé pendant 2 ans dans un travail qui ne me convenait pas. J'ai décidé de reprendre les cours dans l'une de mes passions. Me voici, étudiant a Ynov.</p>
+            <p>'.$query=$bdd->prepare($description).'</p>
           </div>
 
         </div>
@@ -171,7 +186,7 @@
           <t>Salarié Interim</t><br/>Ds smith(Marnoz)/Naturalim(Port Lesney)<br/>
         </p>
         <p>
-          <more>Le travail en intérim demande une certaine autonomie, cela ma donc permis d'être plus autonome et aussi d'acquérir des compétences dans le monde du travail.</more>
+          <more>Le travail en intérim demande une certaine autonomie, cela ma donc permis d\'être plus autonome et aussi d\'acquérir des compétences dans le monde du travail.</more>
         </p>
       </div>
       <div class="col-lg-3">
@@ -279,7 +294,7 @@
 
               <div class="loading"></div>
               <div class="error-message"></div>
-              <div class="sent-message">Votre message c'est envoyé, merci.</div>
+              <div class="sent-message">Votre message c\'est envoyé, merci.</div>
 
               <div class="form-send">
                 <button type="submit" class="btn btn-large">Envoyer</button>
@@ -307,4 +322,9 @@
   <script src="js/main.js"></script>
 
 </body>
-</html>
+</html>';
+
+echo $html;
+?>
+
+

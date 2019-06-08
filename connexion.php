@@ -3,13 +3,6 @@
 include ('info.php');
 
 
-try{
-    $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user, $password);
-
-} catch (PDOExecption $e) {
-    echo "Erreur!:" . $e->getMessage() . "<br/>";
-    die();
-}
 if (!isset($_POST['user'])){
     ?>
 
