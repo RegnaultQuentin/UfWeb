@@ -2,14 +2,11 @@
 include ('info.php');
 
 $title = 'Quentin Regnault';
-$description = '"SELECT description FROM moi"';
-$data = $query->fetchAll();
-
-
-
-
-
-
+$requete_description = $pdo->prepare('SELECT * FROM moi');
+$requete_description->excute();
+//$requete_description = $bdd->query('SELECT * FROM moi'); 
+$datadescription = $requete_description->fetch();
+$description = $datadescription['description'];
 
 
 
@@ -94,7 +91,7 @@ $html = '<!DOCTYPE html>
             <h5>A propos de moi.</h5>
           </div>
           <div class="col-lg-6">
-            <p>'.$query=$bdd->prepare($description).'</p>
+            <p>'.$description.'</p>
           </div>
 
         </div>
