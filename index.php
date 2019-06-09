@@ -2,11 +2,11 @@
 include ('info.php');
 
 $title = 'Quentin Regnault';
-$requete_description = $pdo->prepare('SELECT * FROM moi');
-$requete_description->excute();
-//$requete_description = $bdd->query('SELECT * FROM moi'); 
-$datadescription = $requete_description->fetch();
-$description = $datadescription['description'];
+// $requete_description = $bdd->prepare('SELECT description FROM moi');
+// //$requete_description = $bdd->query('SELECT description FROM moi'); 
+// $requete_description->excute();
+// $datadescription = $requete_description->fetch();
+// $description = $datadescription['description'];
 
 
 
