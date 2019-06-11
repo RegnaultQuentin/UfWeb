@@ -6,7 +6,7 @@ $password = 'Ynovb1b2019';
 $bdd = null;
 
 try{
-    $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user, $password);
+    $bdd = new PDO("mysql:host=$host_name; dbname=$database; charset=utf8;", $user, $password);
 
 } catch (PDOExecption $e) {
     echo "Erreur!:" . $e->getMessage() . "<br/>";

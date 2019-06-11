@@ -17,76 +17,17 @@ jQuery(document).ready(function( $ ) {
   $('.carousel').carousel({
     interval: 3500
   });
-
-  // JavaScript Chart
-  var doughnutData = [{
-      value: 70,
-      color: "#1abc9c"
-    },
-    {
-      value: 30,
-      color: "#ecf0f1"
-    }
-  ];
-  var myDoughnut = new Chart(document.getElementById("javascript").getContext("2d")).Doughnut(doughnutData);
-
-  // Python Chart
-  var doughnutData = [{
-    value: 90,
-    color: "#1abc9c"
-  },
-  {
-    value: 10,
-    color: "#ecf0f1"
-  }
-  ];
-  var myDoughnut = new Chart(document.getElementById("python").getContext("2d")).Doughnut(doughnutData);
-
-  // Sql Chart
-  var doughnutData = [{
-    value: 65,
-    color: "#1abc9c"
-  },
-  {
-    value: 35,
-    color: "#ecf0f1"
-  }
-  ];
-  var myDoughnut = new Chart(document.getElementById("sql").getContext("2d")).Doughnut(doughnutData);
-
-  // HTML Chart
-  var doughnutData = [{
-    value: 80,
-    color: "#1abc9c"
-  },
-  {
-    value: 20,
-    color: "#ecf0f1"
-  }
-  ];
-  var myDoughnut = new Chart(document.getElementById("html").getContext("2d")).Doughnut(doughnutData);
-
-  // Premiere pro Chart
-  var doughnutData = [{
-    value: 20,
-    color: "#1abc9c"
-  },
-  {
-    value: 30,
-    color: "#ecf0f1"
-  }
-  ];
-  var myDoughnut = new Chart(document.getElementById("premiere_pro").getContext("2d")).Doughnut(doughnutData);
-
-  // Linux Chart
-  var doughnutData = [{
-    value: 50,
-    color: "#1abc9c"
-  },
-  {
-    value: 50,
-    color: "#ecf0f1"
-  }
-  ];
-  var myDoughnut = new Chart(document.getElementById("linux").getContext("2d")).Doughnut(doughnutData);
-});
+  
+  $(".levelcanvas").each(function(e) {
+      var doughnutData = [{
+        value: parseInt($(this).attr('level')),
+        color: "#1abc9c"
+      },
+      {
+        value: 100-parseInt($(this).attr('level')),
+        color: "#ecf0f1"
+      }
+    ];
+    var myDoughnut = new Chart($(this)[0].getContext("2d")).Doughnut(doughnutData);
+  });
+})

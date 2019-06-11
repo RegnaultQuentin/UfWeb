@@ -1,20 +1,14 @@
 <?php
 include ('info.php');
-
-$title = 'Quentin Regnault';
-// $requete_description = $bdd->prepare('SELECT description FROM moi');
-// //$requete_description = $bdd->query('SELECT description FROM moi'); 
-// $requete_description->excute();
-// $datadescription = $requete_description->fetch();
-// $description = $datadescription['description'];
+//$requete_description = $bdd->prepare('SELECT description FROM moi');
 
 
-
-$html = '<!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>'.$title.'</title>
+  <title>Regnault Quentin</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -91,7 +85,13 @@ $html = '<!DOCTYPE html>
             <h5>A propos de moi.</h5>
           </div>
           <div class="col-lg-6">
-            <p>'.$description.'</p>
+              <?php
+                $requete_description = $bdd->query('SELECT description FROM moi'); 
+                $data_description = $requete_description->fetchall();
+                foreach($data_description as $description):
+              ?>
+              <p><?=$description['description']?></p>
+              <?php endforeach ?>
           </div>
 
         </div>
@@ -110,47 +110,34 @@ $html = '<!DOCTYPE html>
 
         <div class="col-lg-2 col-lg-offset-1">
           <h5>Parcours scolaire</h5>
+          <?php 
+          $requete_etudes = $bdd->query('SELECT * FROM etudes ORDER BY id DESC');
+          $requete_etudes = $requete_etudes->fetchAll();
+        
+          ?>
         </div>
-        <div class="col-lg-6">
-          <p>
-            <t>Bachelor</t><br/> Ynov Bordeaux <br/>
-            <i></i>
-          </p>
-        </div>
+
+      </div>
+      <!--/.row -->
+      <div style='text-align:center'; class="row">
+      <?php foreach($requete_etudes as $etude): ?>
+            <div class="col-lg-6">
+              <p>
+                <t><?= $etude['niveau'] ?></t><br/><?=$etude['lieux']?><br/>
+                <i></i>
+              </p>
+            </div>
         <div class="col-lg-3">
           <p>
-            <sm>Commencé en 2018</sm><br/>
+            <sm><?=$etude['obtention'] ?></sm><br/>
             <imp>
-              <sm>Toujours en cours</sm>
+              <sm><?=$etude['duree'] ?></sm>
             </imp>
           </p>
         </div>
 
-        <div class="col-lg-6 col-lg-offset-3">
-          <p>
-            <t>Bac professionnel</t><br/> Montmorot JURA<br/>
-            <i>3 ans de formation</i>
-          </p>
-        </div>
-        <div class="col-lg-3">
-          <p>
-            <sm>Obtenu en 2016</sm>
-          </p>
-        </div>
-        <div class="col-lg-6 col-lg-offset-3">
-          <p>
-            <t>B.E.P agricole et travaux paysager</t><br/> Montmorot JURA<br/>
-            <i>Durant ma formation de bac professionnel</i>
-          </p>
-        </div>
-        <div class="col-lg-3">
-          <p>
-            <sm>Obtenu en 2015</sm>
-          </p>
-        </div>
+        <?php endforeach ?>
       </div>
-      <!--/.row -->
-      <br>
       <hr>
     </div>
     <!--/.container -->
@@ -206,38 +193,18 @@ $html = '<!DOCTYPE html>
         <div class="col-lg-2 col-lg-offset-1">
           <h5>Talents</h5>
         </div>
-        <div class="col-lg-3 centered">
-          <canvas id="javascript" height="130" width="130"></canvas>
-          <p>Javascript</p>
-          <br>
-        </div>
-        <div class="col-lg-3 centered">
-          <canvas id="premiere_pro" height="130" width="130"></canvas>
-          <p>Premiere pro</p>
-          <br>
-        </div>
-        <div class="col-lg-3 centered">
-          <canvas id="sql" height="130" width="130"></canvas>
-          <p>SQL</p>
-          <br>
-        </div>
-
-        <div class="col-lg-3 col-lg-offset-3 centered">
-          <canvas id="html" height="130" width="130"></canvas>
-          <p>HTML/CSS</p>
-          <br>
-        </div>
-        <div class="col-lg-3 centered">
-          <canvas id="python" height="130" width="130"></canvas>
-          <p>Python</p>
-          <br>
-        </div>
-        <div class="col-lg-3 centered">
-          <canvas id="linux" height="130" width="130"></canvas>
-          <p>Linux</p>
-          <br>
-        </div>
-
+        <?php
+        $requete_competences = $bdd->query('SELECT * FROM competences');
+        $requete_competences = $requete_competences->fetchAll();
+        foreach($requete_competences as $competence):
+        ?>
+        <!-- foreach -->
+            <div class="col-lg-3 centered">
+              <canvas class="levelcanvas" height="130" width="130" level="<?=$competence['valeur'] ?>"></canvas>
+              <p><?=$competence['competences'] ?></p>
+              <br>
+            </div>
+          <?php endforeach ?>
       </div>
       <!--/.row -->
       <br>
@@ -319,9 +286,5 @@ $html = '<!DOCTYPE html>
   <script src="js/main.js"></script>
 
 </body>
-</html>';
-
-echo $html;
-?>
-
+</html>
 
