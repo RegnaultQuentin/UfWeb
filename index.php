@@ -115,7 +115,7 @@ if(isset($_POST['themail']))
         <div class="col-lg-2 col-lg-offset-1">
           <h5>Parcours scolaire</h5>
           <?php 
-          $requete_etudes = $bdd->query('SELECT * FROM etudes ORDER BY id DESC');
+          $requete_etudes = $bdd->query('SELECT * FROM etudes ORDER BY id');
           $requete_etudes = $requete_etudes->fetchAll();
         
           ?>
