@@ -1,6 +1,5 @@
 <?php
 include ('info.php');
-//$requete_description = $bdd->prepare('SELECT description FROM moi');
 
 
 ?>
@@ -12,10 +11,6 @@ include ('info.php');
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
-
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic|Raleway:400,300,700" rel="stylesheet">
@@ -65,7 +60,7 @@ include ('info.php');
       <div class="row centered">
         <div class="col-lg-12">
           <h1>Quentin Regnault</h1>
-          <h3>Etudiant en Informatique | contact@example.com</h3>
+          <h3>Etudiant en Informatique | Joueur esport semi-pro</h3>
         </div>
         <!--/.col-lg-12 -->
       </div>
@@ -141,56 +136,52 @@ include ('info.php');
       <hr>
     </div>
     <!--/.container -->
-  </section>
+
 
 
   <!--WORK DESCRIPTION -->
   <div class="container desc">
     <div class="row">
 
-      <div class="col-lg-2 col-lg-offset-1">
+      <div class="col-lg-1 ">
         <h5>Emploi</h5>
+        <?php 
+          $requete_travaille = $bdd->query('SELECT * FROM emploi');
+          $requete_travaille = $requete_travaille->fetchAll();
+        
+          ?>
       </div>
+    </div>
+    <div class="row">
+    <?php foreach($requete_travaille as $travail): ?>
       <div class="col-lg-6">
         <p>
-          <t>Emploi saisonier</t><br/> Communauté de Salins Les Bains/Espace vert<br/>
+          <t><?=$travail['nom']?></t><br/><?=$travail['entreprise']?><br/>
         </p>
         <p>
-          <more>Ce travail saisonnier avait pour but de me faire travailler entre mon année de premiere et terminal</more>
+          <more><?=$travail['description']?></more>
         </p>
       </div>
-      <div class="col-lg-3">
+      <!-- <div class="col-lg-3">
         <p>
-          <sm>Juillet 2015</sm>
+          <sm><?=$travail['date']?></sm>
         </p>
-      </div>
-
-      <div class="col-lg-6 col-lg-offset-3">
-        <p>
-          <t>Salarié Interim</t><br/>Ds smith(Marnoz)/Naturalim(Port Lesney)<br/>
-        </p>
-        <p>
-          <more>Le travail en intérim demande une certaine autonomie, cela ma donc permis d\'être plus autonome et aussi d\'acquérir des compétences dans le monde du travail.</more>
-        </p>
-      </div>
-      <div class="col-lg-3">
-        <p>
-          <sm>Novembre 2016/ Juillet 2018</sm>
-        </p>
-      </div>
+      </div> -->
+      <?php endforeach ?>
     </div>
     <!--/.row -->
     <br>
     <hr>
   </div>
   <!--/.container -->
+  </section>
 
   <!--SKILLS DESCRIPTION -->
   <section id="work" name="work">
   <div id="skillswrap">
     <div class="container">
       <div class="row">
-        <div class="col-lg-2 col-lg-offset-1">
+        <div class="col-lg-2">
           <h5>Talents</h5>
         </div>
         <?php
@@ -198,7 +189,6 @@ include ('info.php');
         $requete_competences = $requete_competences->fetchAll();
         foreach($requete_competences as $competence):
         ?>
-        <!-- foreach -->
             <div class="col-lg-3 centered">
               <canvas class="levelcanvas" height="130" width="130" level="<?=$competence['valeur'] ?>"></canvas>
               <p><?=$competence['competences'] ?></p>
@@ -222,11 +212,6 @@ include ('info.php');
 
           <div class="col-lg-2">
             <h5>Contact</h5>
-          </div>
-          <div class="col-lg-4">
-            <p>
-              <t>Email</t><br/> contact@example.com <br/>
-            </p>
           </div>
           <div class="col-lg-6">
             <p>
