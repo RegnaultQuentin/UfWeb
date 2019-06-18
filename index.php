@@ -2,6 +2,15 @@
 include ('info.php');
 
 
+if(isset($_POST['themail']))
+{
+  $name = $_POST['nom'];
+  $email = $_POST['email']; 
+  $subject = $_POST['sujet'];
+  $message = $_POST['message'];
+  $mailuser = $bdd->prepare("INSERT INTO message (nom, email, sujet, message) VALUES (?, ?, ?, ?)");
+  $mailuser->execute(array($name, $email, $subject, $message));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -215,13 +224,13 @@ include ('info.php');
           </div>
           <div class="col-lg-6">
             <p>
-              <sm>CONTACT FORM</sm>
+            Formulaire de contact
             </p>
-            <form class="contact-form php-mail-form" role="form" action="contactform/contactform.php" method="POST">
+            <form class="contact-form php-mail-form" role="form" action="" method="POST">
 
               <div class="form-group">
                 <label for="contact-name">Votre Nom</label>
-                <input type="name" name="name" class="form-control" id="contact-name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                <input type="name" name="nom" class="form-control" id="contact-name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
@@ -231,7 +240,7 @@ include ('info.php');
               </div>
               <div class="form-group">
                 <label for="contact-subject">Sujet</label>
-                <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+                <input type="text" name="sujet" class="form-control" id="contact-subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
                 <div class="validate"></div>
               </div>
 
@@ -243,10 +252,10 @@ include ('info.php');
 
               <div class="loading"></div>
               <div class="error-message"></div>
-              <div class="sent-message">Votre message c\'est envoyé, merci.</div>
+              <div class="sent-message">Votre message c'est envoyé, merci.</div>
 
               <div class="form-send">
-                <button type="submit" class="btn btn-large">Envoyer</button>
+                <button type="submit" class="btn btn-large" name='themail'>Envoyer</button>
               </div>
 
             </form>
