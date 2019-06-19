@@ -13,7 +13,7 @@ if(isset($_POST['themail']))
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <title>Regnault Quentin</title>
