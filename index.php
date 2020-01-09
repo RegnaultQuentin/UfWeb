@@ -69,7 +69,7 @@ if(isset($_POST['themail']))
       <div class="row centered">
         <div class="col-lg-12">
           <h1>Quentin Regnault</h1>
-          <h3>Etudiant en Informatique | Joueur esport semi-pro</h3>
+          <h3>Etudiant en Informatique</h3>
         </div>
         <!--/.col-lg-12 -->
       </div>
@@ -186,7 +186,6 @@ if(isset($_POST['themail']))
   </section>
 
   <!--SKILLS DESCRIPTION -->
-  <section id="work" name="work">
   <div id="skillswrap">
     <div class="container">
       <div class="row">
@@ -211,6 +210,49 @@ if(isset($_POST['themail']))
     <!--/.container -->
   </div>
   <!--/ #skillswrap -->
+  </section>
+  <section id="work" name="work">
+    <!--PORTFOLIO DESCRIPTION -->
+    <div class="container desc">
+      <div class="row">
+        <div class="col-lg-2">
+          <h5>PORTFOLIO</h5>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-centered">
+          <p><img class="img-responsive" src="img/yqsimon.png" alt=""></p>
+        </div>
+        <div class="col-lg-4 col-centered">
+          <p>YQSimon</p>
+          <p>
+            <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/>
+              <sm><i class="icon-tag"></i> design</sm>
+            </more>
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+
+
+        <div class="col-lg-4 col-centered">
+          <p>YQVideos</p>
+          <p>
+            <more>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/><br/>
+              <sm><i class="icon-tag"></i> design</sm>
+            </more>
+          </p>
+        </div>
+        <div class="col-lg-6 col-centered">
+          <p><img class="img-responsive" src="img/yqvideos.png" alt=""></p>
+        </div>
+
+      </div>
+      <!--/.row -->
+      <br>
+      <br>
+    </div>
+    <!--/.container -->
   </section>
 
   <section id="contact" name="contact">
